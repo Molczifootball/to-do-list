@@ -1,0 +1,26 @@
+  <%-include("header") -%>
+    <div class="box" id="heading">
+      <h1><%=listTitle%></h1>
+      <button type="button" class="btn btn-primary" name="Work" <button onclick="window.location.href = '/Work';"value="W">W</button></button>
+      <button type="button" class="btn btn-primary" name="Home" <button onclick="window.location.href = '/';"value="H">H</button></button>
+    </div>
+    <div class="box">
+
+      <form class="" action="/delete" method="post">
+        <% newListItems.forEach(function(item){ %>
+         <div class="item">
+           <input type="checkbox">
+           <p><%=item.name%></p>
+           <button onClick="this.form.submit()" class="btn btn-primary" value="<%=item._id%>" type="submit" name="Delete">Delete</button>
+         </div>
+       <%});%>
+       <input type="hidden" name="listName"  value="<%=listTitle%>" ></input>
+      </form>
+
+
+      <form class="item" action="/" method="post">
+        <input type="text" placeholder="New Item" name="newItem" autofocus autocomplete="off">
+        <button class="button btn btn-lg" type="submit" name="list" value="<%=listTitle%>">+</button>
+      </form>
+    </div>
+  <%-include("footer") -%>
